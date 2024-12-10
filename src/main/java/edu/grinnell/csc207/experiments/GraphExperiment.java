@@ -1,14 +1,13 @@
 package edu.grinnell.csc207.experiments;
 
-import edu.grinnell.csc207.util.Graph;
-
 import java.io.PrintWriter;
+
+import edu.grinnell.csc207.util.Graph;
 
 /**
  * A quick experiment with graphs.
  *
- * @author Your Name Here
- * @author Your Name Here
+ * @author Princess Alexander
  * @author Samuel A. Rebelsky
  */
 public class GraphExperiment {
