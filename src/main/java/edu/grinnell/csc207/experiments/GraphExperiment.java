@@ -72,6 +72,48 @@ public class GraphExperiment {
     // Remove an edge
     g.removeEdge("a", "c");
     g.dump(pen);
+
+  // Additional experiments
+
+    // 1. Add edges with non-existent vertices
+    try {
+      g.addEdge("x", "y", 10);
+    } catch (Exception e) {
+      pen.println("Correctly failed to add edge with non-existent vertices.");
+    }
+
+    // 2. Test removing a non-existent vertex
+    try {
+      g.removeVertex("z");
+      pen.println("Successfully removed non-existent vertex z");
+    } catch (Exception e) {
+      pen.println("Correctly failed to remove non-existent vertex z.");
+    }
+
+    // 3. Check for graph behavior with duplicate edges
+    g.addEdge("a", "c", 15); // Adding a duplicate edge
+    g.dumpWithNames(pen);
+
+    // 4. Test adding an edge after removing a vertex
+    g.removeVertex("a");
+    try {
+      g.addEdge("a", "f", 20);
+    } catch (Exception e) {
+      pen.println("Correctly failed to add edge after vertex a was removed.");
+    }
+    g.dumpWithNames(pen);
+
+    // 5. Attempting to add an edge with invalid vertex format
+    try {
+      g.addEdge("1", "2", 25); // Numeric as vertex
+      pen.println("Surprisingly, added edge with numeric vertices.");
+    } catch (Exception e) {
+      pen.println("Correctly failed to add edge with numeric vertices.");
+    }
+
+    // 6. Test removing edges that don't exist
+    g.removeEdge("a", "f"); // Non-existent edge
+    g.dumpWithNames(pen);
   } // main(String[])
 
 } // class GraphExperiment
